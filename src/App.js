@@ -21,6 +21,7 @@ function App() {
       <ChartsContainer />
       <ProductsList />
       <Footer />
+      {/* Testing GitHub repo */}
     </>
   );
 }
