@@ -1,38 +1,63 @@
-.App {
-  text-align: center;
+/* Custom css for bootstrap components */
+body {
+  background-color: #2A6892;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.navBar {
+  padding: 1%;
+  background-color: #eee;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.imagelogo {
+  width: 40%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.navBarTop {
+  background-color: white;
+  max-width: 100%;
 }
 
-.App-link {
-  color: #61dafb;
+.containerProgress {
+  background-color: white;
+  margin: 1%;
+  padding: 1%;
+  max-width: 96%;
+  border-radius: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.colProgress {
+  margin: 1%;
+}
+
+.containerCharts {
+  background-color: white;
+  margin: 1%;
+  padding: 1%;
+  max-width: 96%;
+  border-radius: 10px;
+}
+
+.containerList {
+  background-color: white;
+  margin: 1%;
+  padding: 1%;
+  max-width: 96%;
+  border-radius: 10px;
+}
+
+.buttonAdd {
+  width: 90%;
+  height: 100%;
+}
+
+.containerFooter {
+  background-color: white;
+  margin: 1%;
+  padding: 1%;
+  max-width: 96%;
+  border-radius: 10px;
+}
+
+.lgProducts {
+  font-weight: 650;
 }

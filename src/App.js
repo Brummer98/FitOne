@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+// CSS import
+import "./App.css";
 
+// Bootstrap import
+import "bootstrap/dist/css/bootstrap.min.css";
+
+// Component imports
+import NavBar from "./components/Navbar";
+import ProgressBarMain from "./components/Progressbar";
+import ChartsContainer from "./components/Charts.js";
+import ProductsList from "./components/ProductsList";
+import Footer from "./components/Footer";
+
+// App function
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <style>{"body { background-color: #2A6892; }"}</style>
+      <NavBar />
+      <ProgressBarMain />
+      <ChartsContainer />
+      <ProductsList />
+      <Footer />
+      {/* Poepjes */}
+    </>
   );
 }
-
 export default App;
