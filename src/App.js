@@ -10,6 +10,7 @@ import ProgressBarMain from "./components/Progressbar";
 import ChartsContainer from "./components/Charts.js";
 import ProductsList from "./components/ProductsList";
 import Footer from "./components/Footer";
+import MyComponent from "./components/API";
 
 // App function
 function App() {
@@ -21,7 +22,8 @@ function App() {
       <ChartsContainer />
       <ProductsList />
       <Footer />
-      {/* Testing GitHub repo */}
+      {/* Testing API */}
+      <MyComponent />
     </>
   );
 }
