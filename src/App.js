@@ -21,7 +21,6 @@ function App() {
       <ChartsContainer />
       <ProductsList />
       <Footer />
-      {/* Poepjes */}
     </>
   );
 }
