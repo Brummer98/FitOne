@@ -1,3 +1,6 @@
+// React imports
+import React, { useEffect, useState } from 'react';
+
 // CSS import
 import "./App.css";
 

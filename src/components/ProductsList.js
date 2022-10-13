@@ -1,15 +1,40 @@
+// React imports
+import React, { useEffect, useState } from "react";
+
 // Bootstrap imports
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import "bootstrap/dist/css/bootstrap.min.css";
 import ListGroup from "react-bootstrap/ListGroup";
-
-import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 
+// API imports
+import List from "../components/List";
+import withListLoading from "../components/withListLoading";
+
 function ProductsList() {
+  // Testing list with API data
+  const ListLoading = withListLoading(List);
+  const [appState, setAppState] = useState({
+    loading: false,
+    repos: null,
+  });
+
+  useEffect(() => {
+    setAppState({ loading: true });
+    const apiUrl = "https://6346b06d9eb7f8c0f882be14.mockapi.io/products";
+    // `https://api.github.com/users/hacktivist123/repos`;
+    fetch(apiUrl)
+      .then((res) => res.json())
+      // products was repos
+      .then((products) => {
+        // products was repos
+        setAppState({ loading: false, products: products });
+      });
+  }, [setAppState]);
+
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -40,9 +65,19 @@ function ProductsList() {
               <ListGroup.Item>120 gram</ListGroup.Item>
             </ListGroup>
           </Col>
-          <Col></Col>
           <Col>
-            <Button className="buttonAdd" variant="warning" onClick={handleShow}>
+          <ListGroup variant="flush">
+              <ListGroup.Item>...</ListGroup.Item>
+              <ListGroup.Item>...</ListGroup.Item>
+              <ListGroup.Item>...</ListGroup.Item>
+            </ListGroup>
+          </Col>
+          <Col>
+            <Button
+              className="buttonAdd"
+              variant="warning"
+              onClick={handleShow}
+            >
               Add product
             </Button>
             {/* Modal for button add product */}
@@ -51,7 +86,7 @@ function ProductsList() {
                 <Modal.Title>Add product(s)</Modal.Title>
               </Modal.Header>
               <Modal.Body>
-              Add product to diary
+                <ListLoading isLoading={appState.loading} repos={appState.products} />
               </Modal.Body>
               <Modal.Footer>
                 <Button variant="secondary" onClick={handleClose}>
