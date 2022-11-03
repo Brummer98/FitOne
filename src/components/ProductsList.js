@@ -69,7 +69,9 @@ function ProductsList() {
           <ListGroup variant="flush">
               <ListGroup.Item>...</ListGroup.Item>
               <ListGroup.Item>...</ListGroup.Item>
-              <ListGroup.Item>...</ListGroup.Item>
+              <ListGroup.Item>...
+                
+              </ListGroup.Item>
             </ListGroup>
           </Col>
           <Col>
