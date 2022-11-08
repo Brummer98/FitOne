@@ -38,16 +38,19 @@ function ChartsContainer() {
         <Row>
           <Col></Col>
           <Col className="colChart">
+            <h3>Carbs</h3>
             <Doughnut className="dcMain" data={data} />
           </Col>
           <Col></Col>
           <Col></Col>
           <Col className="colChart">
+            <h3>Protein</h3>
             <Doughnut className="dcMain" data={data} />
           </Col>
           <Col></Col>
           <Col></Col>
           <Col className="colChart">
+            <h3>Fat</h3>
             <Doughnut className="dcMain" data={data} />
           </Col>
           <Col></Col>
