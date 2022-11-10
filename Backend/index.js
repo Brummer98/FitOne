@@ -2,11 +2,12 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import bodyparser from 'body-parser';
+import cors from 'corse';
 import routes from './routes/fitoneRoutes';
 
-// Connect with express on port {3000}
+// Connect with express on port {4000}
 const app = express();
-const PORT = 3000;
+const PORT = 4000; // Frontend runs on Port 3000
 
 // mongo connection
 mongoose.Promise = global.Promise;
@@ -18,6 +19,9 @@ mongoose.connect('mongodb://localhost/fitoneDB',{
 // bodyparser setup
 app.use(bodyparser.urlencoded({ extended: true }));
 app.use(bodyparser.json());
+
+// CORS setup
+app.use(cors());
 
 // Routes
 routes(app);

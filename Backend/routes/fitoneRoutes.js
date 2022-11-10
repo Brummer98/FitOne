@@ -1,8 +1,10 @@
-import { addNewUser } from '../controllers/userControllers';
+import { addNewUser, getUsers } from '../controllers/userControllers';
 
 const routes = (app) => {
     app.route('/users')
-    // Post endpoint
+    // GET endpoint
+        .get(getUsers)
+    // POST endpoint
         .post(addNewUser);
 }
 

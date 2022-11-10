@@ -13,3 +13,12 @@ export const addNewUser = (req, res) => {
         res.json(User);
     });
 };
+
+export const getUsers = (req, res) => {
+    User.find({}, (err, User) => {
+        if(err) {
+            res.send(err);
+        }
+        res.json(User);
+    });
+};
