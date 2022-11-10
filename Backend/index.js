@@ -2,7 +2,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import bodyparser from 'body-parser';
-import cors from 'corse';
+import cors from 'cors';
 import routes from './routes/fitoneRoutes';
 
 // Connect with express on port {4000}
