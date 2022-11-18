@@ -1,15 +1,43 @@
-import React from 'react';
+import React from "react";
+import axios from 'axios';
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
 
 class UserForm extends React.Component {
-    constructor(props) {
-        super(props);
+    submitUser(event) {
+        event.preventDefault();
+
+        axios.post('http://localhost:4000/Users', {
+            userName: document.getElementById("userName").value,
+            password: document.getElementById("password").value,
+        })
+        .then((Response) => {
+            console.log(Response);
+        })
+        .catch((error) => {
+            console.log(error);
+        })
     }
-    state = {  }
-    render() { 
-        return ( <div>
-            UserForm
-        </div> );
-    }
+
+  render() {
+    return (
+      <Form onSubmit={this.submitUser.bind(this)}>
+        <Form.Group className="mb-3" controlId="userName">
+          <Form.Label>Username</Form.Label>
+          <Form.Control type="text" placeholder="Enter username" />
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="password">
+          <Form.Label>Password</Form.Label>
+          <Form.Control type="text" placeholder="Enter password" />
+        </Form.Group>
+
+        <Button variant="primary" type="submit">
+          Submit
+        </Button>
+      </Form>
+    );
+  }
 }
- 
+
 export default UserForm;

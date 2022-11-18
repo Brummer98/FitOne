@@ -58,10 +58,9 @@ class App extends React.Component {
       <>
         {/* Testing below */}
 
-        <div className="container-fluid">
+        {/* <div className="container-fluid">
           <div className="row">
             <NavBar />
-            {/* <div className="col s12">Menu</div> */}
           </div>
           <div className="row">
             <div className="col s3">
@@ -77,16 +76,16 @@ class App extends React.Component {
               <UserForm />
             </div>
           </div>
-        </div>
+        </div> */}
 
       <style>{"body { background-color: #2A6892; }"}</style>
-      {/* <NavBar /> */}
-      {/* <ProgressBarMain /> */}
-      {/* <ChartsContainer /> */}
-      {/* <ProductsList /> */}
-      {/* <Footer />  */}
+      <NavBar />
+      <ProgressBarMain />
+      <ChartsContainer />
+      <ProductsList />
+      <Footer /> 
         {/* Testing API */}
-        {/* <MyComponent /> */}
+        <MyComponent />
       </>
     );
   }
