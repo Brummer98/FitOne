@@ -1,26 +1,32 @@
 // React imports
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useRoutes,
+} from "react-router-dom";
 
 // CSS import
-import "./App.css";
+import "../App.css";
 
 // Bootstrap import
 import "bootstrap/dist/css/bootstrap.min.css";
 
 // Component imports
-import NavBar from "./components/Navbar";
-import NavBar2 from "./components/Navbar2.0";
-import ProgressBarMain from "./components/Progressbar";
-import ChartsContainer from "./components/Charts.js";
-import ProductsList from "./components/ProductsList";
-import Footer from "./components/Footer";
-import MyComponent from "./components/API";
+import NavBar from "../components/Navbar";
+import NavBar2 from "../components/Navbar2.0";
+import ProgressBarMain from "../components/Progressbar";
+import ChartsContainer from "../components/Charts.js";
+import ProductsList from "../components/ProductsList";
+import Footer from "../components/Footer";
+import MyComponent from "../components/API";
 
 // User imports
-import UserForm from "./components/User/UserForm";
-import UserList from "./components/User/UserList";
-import UserSingle from "./components/User/UserSingle";
+import UserForm from "../components/User/UserForm";
+import UserList from "../components/User/UserList";
+import UserSingle from "../components/User/UserSingle";
 
 // App function
 class App extends React.Component {

@@ -10,11 +10,9 @@ const UserSingle = (props) => {
       <Card.Body>
         <Card.Title>{props.user.userName}</Card.Title>
         <Card.Text>
-            <p>Username: {props.user.userName}</p>
             <p>Password: {props.user.password}</p>
             <p>Signup date: {props.user.created_date}</p>
         </Card.Text>
-        {/* <Button variant="primary">Go somewhere</Button> */}
       </Card.Body>
     </Card>
   );

@@ -9,7 +9,7 @@ body {
 }
 
 .imagelogo {
-  width: 40%;
+  width: 40% !important;
 }
 
 .navBarTop {
