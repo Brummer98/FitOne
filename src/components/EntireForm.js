@@ -3,15 +3,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 // CSS import
-import "../App.css";
-
-// Routes import
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Navigate,
-} from "react-router-dom";
+import "..";
 
 // Bootstrap import
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -19,18 +11,14 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-// Component imports
-import NavBar from "../components/Navbar";
-import NavBar2 from "../components/Navbar2.0";
-import ProgressBarMain from "../components/Progressbar";
-import ChartsContainer from "../components/Charts.js";
-import ProductsList from "../components/ProductsList";
-import Footer from "../components/Footer";
-import MyComponent from "../components/API";
-import EntireForm from "../components/EntireForm";
+// User imports
+import UserForm from "./User/UserForm";
+import EditForm from "./User/UserEditForm";
+import UserList from "./User/UserList";
+import UserSingle from "./User/UserSingle";
 
 // App function
-class Home extends React.Component {
+class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -65,17 +53,28 @@ class Home extends React.Component {
   render() {
     return (
       <>
-        <style>{"body { background-color: #2A6892; }"}</style>
-        <NavBar2 />
-        <ProgressBarMain />
-        <ChartsContainer />
-        <ProductsList />
-        {/* <EntireForm /> */}
-        <Footer />
-        {/* Testing API */}
-        <MyComponent />
+         <Container fluid className="formContainer">
+          <Row className="formRow">
+            <Col xs={6}>
+              <UserList Users={this.state.Users}
+              updateCurrentUser={this.updateCurrentUser}/>
+            </Col>
+            <Col xs={2}></Col>
+            <Col xs={4}>
+              <UserSingle user={this.state.CurrentUser}/>
+            </Col>
+          </Row>
+          <Row className="row">
+            <Col xs={6}>
+              <UserForm />
+            </Col>
+            <Col xs={6}>
+              <EditForm />
+            </Col>
+          </Row>
+        </Container>
       </>
     );
   }
 }
-export default Home;
+export default App;

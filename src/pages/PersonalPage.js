@@ -23,7 +23,7 @@ import UserList from "../components/User/UserList";
 import UserSingle from "../components/User/UserSingle";
 
 // App function
-class App extends React.Component {
+class Personal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -58,7 +58,6 @@ class App extends React.Component {
     return (
       <>
         {/* Testing below */}
-
         <div className="container-fluid">
           <div className="row">
             <NavBar2 />
@@ -82,4 +81,4 @@ class App extends React.Component {
     );
   }
 }
-export default App;
+export default Personal;

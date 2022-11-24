@@ -1,6 +1,12 @@
 // React imports
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 
 // CSS import
 import "./App.css";
@@ -8,66 +14,24 @@ import "./App.css";
 // Bootstrap import
 import "bootstrap/dist/css/bootstrap.min.css";
 
-// Component imports
-import NavBar from "./components/Navbar";
-import NavBar2 from "./components/Navbar2.0";
-import ProgressBarMain from "./components/Progressbar";
-import ChartsContainer from "./components/Charts.js";
-import ProductsList from "./components/ProductsList";
-import Footer from "./components/Footer";
-import MyComponent from "./components/API";
-
-// User imports
-import UserForm from "./components/User/UserForm";
-import UserList from "./components/User/UserList";
-import UserSingle from "./components/User/UserSingle";
+// Page imports
+import Home from "./pages/Home";
+import Personal from "./pages/PersonalPage";
+import Login from "./pages/Login";
 
 // App function
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      Users: [],
-      CurrentUser: {},
-    };
-
-    this.updateCurrentUser = this.updateCurrentUser.bind(this);
-  }
-
-  componentDidMount() {
-    const url = "http://localhost:4000/users";
-
-    axios
-      .get(url)
-      .then((Response) => {
-        this.setState({
-          Users: Response.data,
-        });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }
-
-  updateCurrentUser(item) {
-    this.setState({
-      CurrentUser: item,
-    });
-  }
-
-  render() {
-    return (
-      <>
-        <style>{"body { background-color: #2A6892; }"}</style>
-        <NavBar2 />
-        <ProgressBarMain />
-        <ChartsContainer />
-        <ProductsList />
-        <Footer />
-        {/* Testing API */}
-        <MyComponent />
-      </>
-    );
-  }
+function App() {
+  return (
+    <>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/personal" element={<Personal />} />
+        </Routes>
+      </Router>
+    </>
+  );
 }
 export default App;

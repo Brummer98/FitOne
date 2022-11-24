@@ -7,13 +7,13 @@ import Form from "react-bootstrap/Form";
 class UserForm extends React.Component {
     submitUser(event) {
         event.preventDefault();
-
-        axios.post('http://localhost:4000/Users', {
-            userName: document.getElementById("userName").value,
-            password: document.getElementById("password").value,
-            age: document.getElementById("age").value,
-            weight: document.getElementById("weight").value,
-            calories: document.getElementById("calories").value,
+        
+        axios.put('http://localhost:4000/user/637dff32fdffb5feb8e475b8', {
+            userName: document.getElementById("userNameEdit").value,
+            password: document.getElementById("passwordEdit").value,
+            age: document.getElementById("ageEdit").value,
+            weight: document.getElementById("weightEdit").value,
+            calories: document.getElementById("caloriesEdit").value,
         })
         .then((Response) => {
             console.log(Response);
@@ -26,35 +26,35 @@ class UserForm extends React.Component {
   render() {
     return (
       <>
-      <h3>Create user</h3>
+      <h3>Edit user</h3>
       <Form onSubmit={this.submitUser.bind(this)}>
-        <Form.Group className="mb-3" controlId="userName">
+        <Form.Group className="mb-3" controlId="userNameEdit">
           <Form.Label>Username</Form.Label>
           <Form.Control type="text" placeholder="Enter username" />
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="password">
+        <Form.Group className="mb-3" controlId="passwordEdit">
           <Form.Label>Password</Form.Label>
           <Form.Control type="Password" placeholder="Enter password" />
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="age">
+        <Form.Group className="mb-3" controlId="ageEdit">
           <Form.Label>Age</Form.Label>
           <Form.Control type="number" placeholder="Enter age" />
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="weight">
+        <Form.Group className="mb-3" controlId="weightEdit">
           <Form.Label>Weight</Form.Label>
           <Form.Control type="number" placeholder="Enter weight" />
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="calories">
+        <Form.Group className="mb-3" controlId="caloriesEdit">
           <Form.Label>Calories</Form.Label>
           <Form.Control type="number" placeholder="Enter calories" />
         </Form.Group>
 
         <Button variant="primary" type="submit">
-          Create data
+          Update data
         </Button>
       </Form>
       </>
