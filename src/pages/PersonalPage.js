@@ -7,6 +7,9 @@ import "../App.css";
 
 // Bootstrap import
 import "bootstrap/dist/css/bootstrap.min.css";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 // Component imports
 import NavBar from "../components/Navbar";
@@ -16,6 +19,7 @@ import ChartsContainer from "../components/Charts.js";
 import ProductsList from "../components/ProductsList";
 import Footer from "../components/Footer";
 import MyComponent from "../components/API";
+import Profile from "../components/Login/Profile";
 
 // User imports
 import UserForm from "../components/User/UserForm";
@@ -29,19 +33,20 @@ class Personal extends React.Component {
     this.state = {
       Users: [],
       CurrentUser: {},
-    }
+    };
 
     this.updateCurrentUser = this.updateCurrentUser.bind(this);
   }
 
   componentDidMount() {
-    const url = 'http://localhost:4000/users';
+    const url = "http://localhost:4000/users";
 
-    axios.get(url)
+    axios
+      .get(url)
       .then((Response) => {
         this.setState({
-          Users: Response.data
-        })
+          Users: Response.data,
+        });
       })
       .catch((error) => {
         console.log(error);
@@ -51,32 +56,31 @@ class Personal extends React.Component {
   updateCurrentUser(item) {
     this.setState({
       CurrentUser: item,
-    })
+    });
   }
-  
+
   render() {
     return (
       <>
         {/* Testing below */}
-        <div className="container-fluid">
-          <div className="row">
-            <NavBar2 />
-          </div>
-          <div className="row">
-            <div className="col s3">
-              <UserList Users={this.state.Users}
-              updateCurrentUser={this.updateCurrentUser}/>
-            </div>
-            <div className="col s9">
-              <UserSingle user={this.state.CurrentUser}/>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col s12">
-              <UserForm />
-            </div>
-          </div>
-        </div>
+        <NavBar2 />
+        <Container>
+          <Row>
+            <Col xs={3}>
+              <UserList
+                Users={this.state.Users}
+                updateCurrentUser={this.updateCurrentUser}
+              />
+            </Col>
+            <Col xs={9}>
+              <UserSingle user={this.state.CurrentUser} />
+            </Col>
+          </Row>
+          <Row>
+            <UserForm />
+            {/* <Profile /> */}
+          </Row>
+        </Container>
       </>
     );
   }

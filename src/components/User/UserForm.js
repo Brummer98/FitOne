@@ -54,7 +54,7 @@ class UserForm extends React.Component {
         </Form.Group>
 
         <Button variant="primary" type="submit">
-          Create data
+          Create user
         </Button>
       </Form>
       </>

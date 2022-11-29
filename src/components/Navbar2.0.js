@@ -31,6 +31,8 @@ function NavBar2() {
           <Nav.Link href="/home">Home</Nav.Link>
           <Nav.Link href="/personal">Personal Page</Nav.Link>
           <Nav.Link href="/login">Login/Logout</Nav.Link>
+          <Nav.Link href="/createUser">Create user</Nav.Link>
+          <Nav.Link href="/users">Users</Nav.Link>
         </Nav>
       </Navbar.Collapse>
     </Container>

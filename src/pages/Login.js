@@ -11,6 +11,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import LoginButton from "../components/Login/LoginButton";
 import LogoutButton from "../components/Login/LogoutButton";
 import Profile from "../components/Login/Profile";
+import NavBar2 from "../components/Navbar2.0";
 
 const domain = process.env.REACT_APP_AUTH0_DOMAIN;
 const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
@@ -55,6 +56,7 @@ class Login extends React.Component {
             Login
           </Button>
         </Form> */}
+        <NavBar2 />
         <Auth0Provider
           domain={domain}
           clientId={clientId}

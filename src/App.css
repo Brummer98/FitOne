@@ -85,3 +85,11 @@ body {
   margin-top: 2% !important;
   padding: 2%;
 }
+
+.containerCreateUser {
+  margin-top: 2%;
+  padding: 1%;
+  background-color: white;
+  border: 1px solid white;
+  border-radius: 10px;
+}
