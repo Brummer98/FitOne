@@ -9,6 +9,7 @@ import Col from "react-bootstrap/Col";
 import UserList from "../../components/User/UserList";
 
 function Read() {
+    
   return (
     <>
       <style>{"body { background-color: #2A6892; }"}</style>
