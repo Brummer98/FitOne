@@ -93,3 +93,8 @@ body {
   border: 1px solid white;
   border-radius: 10px;
 }
+
+.rowPersonalTop {
+  margin-top: 2% !important;
+  margin-bottom: 2% !important;
+}

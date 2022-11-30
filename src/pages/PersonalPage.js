@@ -23,6 +23,7 @@ import Profile from "../components/Login/Profile";
 
 // User imports
 import UserForm from "../components/User/UserForm";
+import UserEditForm from "../components/User/UserEditForm";
 import UserList from "../components/User/UserList";
 import UserSingle from "../components/User/UserSingle";
 
@@ -62,22 +63,26 @@ class Personal extends React.Component {
   render() {
     return (
       <>
+        <style>{"body { background-color: #2A6892; }"}</style>
         {/* Testing below */}
         <NavBar2 />
         <Container>
-          <Row>
-            <Col xs={3}>
+          <Row className="rowPersonalTop">
+            <Col xs={12}>
               <UserList
                 Users={this.state.Users}
                 updateCurrentUser={this.updateCurrentUser}
               />
             </Col>
-            <Col xs={9}>
+          </Row>
+          {/* <Row>
+            <Col xs={12}>
               <UserSingle user={this.state.CurrentUser} />
             </Col>
-          </Row>
+          </Row> */}
           <Row>
-            <UserForm />
+            {/* <UserForm /> */}
+            {/* <UserEditForm /> */}
             {/* <Profile /> */}
           </Row>
         </Container>
