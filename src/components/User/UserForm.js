@@ -3,6 +3,10 @@ import axios from "axios";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
+import NavBar2 from "../Navbar2.0";
+
+import { Link } from "react-router-dom";
+
 class UserForm extends React.Component {
   submitUser(event) {
     event.preventDefault();
@@ -17,12 +21,13 @@ class UserForm extends React.Component {
       })
       .then((Response) => {
         console.log(Response);
+        window.location.href = "/personal";
       })
       .catch((error) => {
         console.log(error);
       });
   }
- 
+
   render() {
     return (
       <>
