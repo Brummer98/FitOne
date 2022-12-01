@@ -6,6 +6,7 @@ import {
   Routes,
   Route,
   Navigate,
+  withRouter,
 } from "react-router-dom";
 
 // CSS import
