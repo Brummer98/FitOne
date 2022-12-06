@@ -7,101 +7,73 @@ import Button from "react-bootstrap/Button";
 
 // Bootstrap import
 import "bootstrap/dist/css/bootstrap.min.css";
+import { get } from "mongoose";
+import { data } from "../Charts";
 
-const UserList = (props) => {
+class UserList extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      users: [],
+    };
+  }
 
-  return (
-    <>
-      <h4>Users</h4>
-      {props.Users.map((item) => (
-        <Table striped bordered hover variant="dark">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Username</th>
-              <th>Age</th>
-              <th>Weight</th>
-              <th>Calories</th>
-              <th>Delete</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>{item._id}</td>
-              <td>{item.userName}</td>
-              <td>{item.age}</td>
-              <td>{item.weight}</td>
-              <td>{item.calories}</td>
-              <td>
-                <Button variant="warning">Delete</Button>
-              </td>
-            </tr>
-          </tbody>
-        </Table>
-      ))}
+  componentDidMount() {  
+    axios.get(`http://localhost:4000/users`)  
+      .then(res => {  
+        const users = res.data;  
+        this.setState({ users });  
+      })  
+  }  
 
-      {/* <ListGroup>
-        {props.Users.map((item) => (
-          <>
-            <ListGroup.Item>
-              <a
-                href="#!"
-                className="collection-item"
-                key={item._id}
-                onClick={props.updateCurrentUser.bind(this, item)}
-              >
-                {item._id}
-              </a>
-            </ListGroup.Item>
-            <ListGroup.Item>
-              Username:
-              <a
-                href="#!"
-                className="collection-item"
-                key={item._id}
-                onClick={props.updateCurrentUser.bind(this, item)}
-              >
-                {item.userName}
-              </a>
-            </ListGroup.Item>
-            <ListGroup.Item>
-              Age:
-              <a
-                href="#!"
-                className="collection-item"
-                key={item._id}
-                onClick={props.updateCurrentUser.bind(this, item)}
-              >
-                {item.age}
-              </a>
-            </ListGroup.Item>
-            <ListGroup.Item>
-              Weight:
-              <a
-                href="#!"
-                className="collection-item"
-                key={item._id}
-                onClick={props.updateCurrentUser.bind(this, item)}
-              >
-                {item.weight}
-              </a>
-            </ListGroup.Item>
-            <ListGroup.Item>
-              Calories:
-              <a
-                href="#!"
-                className="collection-item"
-                key={item._id}
-                onClick={props.updateCurrentUser.bind(this, item)}
-              >
-                {item.calories}
-              </a>
-            </ListGroup.Item>
-          </>
+  deleteRow(id, e){  
+    axios.delete(`http://localhost:4000/user/${id}`)  
+      .then(res => {  
+        console.log(res);  
+        console.log(res.data);  
+    
+        const users = this.state.users.filter(item => item.id !== id);  
+        this.setState({ users });  
+        window.location.href = "personal";
+      })  
+    
+  }  
+
+  render() {
+    const { users } = this.state;
+
+    return (
+      <>
+        <h4>Users</h4>
+        {users.map((item) => (
+          <Table striped bordered hover variant="dark">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Username</th>
+                <th>Age</th>
+                <th>Weight</th>
+                <th>Calories</th>
+                <th>Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{item._id}</td>
+                <td>{item.userName}</td>
+                <td>{item.age}</td>
+                <td>{item.weight}</td>
+                <td>{item.calories}</td>
+                <td>
+                   <Button variant="warning" onClick={(e) => this.deleteRow(item._id, e)}>Delete</Button> 
+                </td>
+              </tr>
+            </tbody>
+          </Table>
         ))}
-      </ListGroup> */}
-    </>
-  );
-};
+      </>
+    );
+  }
+}
 
 export default UserList;
