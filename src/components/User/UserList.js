@@ -4,6 +4,7 @@ import axios from "axios";
 import ListGroup from "react-bootstrap/ListGroup";
 import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
+import { BrowserRouter as Router, Link } from "react-router-dom";
 
 // Bootstrap import
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -18,26 +19,23 @@ class UserList extends React.Component {
     };
   }
 
-  componentDidMount() {  
-    axios.get(`http://localhost:4000/users`)  
-      .then(res => {  
-        const users = res.data;  
-        this.setState({ users });  
-      })  
-  }  
+  componentDidMount() {
+    axios.get(`http://localhost:4000/users`).then((res) => {
+      const users = res.data;
+      this.setState({ users });
+    });
+  }
 
-  deleteRow(id, e){  
-    axios.delete(`http://localhost:4000/user/${id}`)  
-      .then(res => {  
-        console.log(res);  
-        console.log(res.data);  
-    
-        const users = this.state.users.filter(item => item.id !== id);  
-        this.setState({ users });  
-        window.location.href = "personal";
-      })  
-    
-  }  
+  deleteRow(id, e) {
+    axios.delete(`http://localhost:4000/user/${id}`).then((res) => {
+      console.log(res);
+      console.log(res.data);
+
+      const users = this.state.users.filter((item) => item.id !== id);
+      this.setState({ users });
+      window.location.href = "personal";
+    });
+  }
 
   render() {
     const { users } = this.state;
@@ -55,6 +53,7 @@ class UserList extends React.Component {
                 <th>Weight</th>
                 <th>Calories</th>
                 <th>Delete</th>
+                <th>Edit</th>
               </tr>
             </thead>
             <tbody>
@@ -65,7 +64,17 @@ class UserList extends React.Component {
                 <td>{item.weight}</td>
                 <td>{item.calories}</td>
                 <td>
-                   <Button variant="warning" onClick={(e) => this.deleteRow(item._id, e)}>Delete</Button> 
+                  <Button
+                    variant="danger"
+                    onClick={(e) => this.deleteRow(item._id, e)}
+                  >
+                    Delete
+                  </Button>
+                </td>
+                <td>
+                  <Link to="/edit" state={item._id}>
+                    <Button variant="warning">Edit</Button>
+                  </Link>
                 </td>
               </tr>
             </tbody>

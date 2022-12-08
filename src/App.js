@@ -21,6 +21,7 @@ import Personal from "./pages/PersonalPage";
 import Login from "./pages/Login";
 import Create from "./pages/CRUD/Create";
 import Read from "./pages/CRUD/Read";
+import Edit from "./pages/Edit";
 
 // App function
 function App() {
@@ -34,6 +35,7 @@ function App() {
           <Route path="/personal" element={<Personal />} />
           <Route path="/createUser" element={<Create />} />
           <Route path="/users" element={<Read />} />
+          <Route path="/edit" element={<Edit />} />
         </Routes>
       </Router>
     </>
