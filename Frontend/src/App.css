@@ -1,0 +1,100 @@
+/* Custom css for bootstrap components */
+body {
+  background-color: #2A6892;
+}
+
+.navBar {
+  padding: 1%;
+  background-color: #eee;
+}
+
+.imagelogo {
+  width: 50% !important;
+}
+
+.navBarTop {
+  background-color: white;
+  max-width: 100%;
+}
+
+.containerProgress {
+  background-color: white;
+  margin: 1%;
+  padding: 1%;
+  max-width: 96%;
+  border-radius: 10px;
+}
+
+.colProgress {
+  margin: 1%;
+}
+
+.containerCharts {
+  background-color: white;
+  margin: 1%;
+  padding: 1%;
+  max-width: 96%;
+  border-radius: 10px;
+}
+
+.containerList {
+  background-color: white;
+  margin: 1%;
+  padding: 1%;
+  max-width: 96%;
+  border-radius: 10px;
+}
+
+.formContainer {
+  background-color: white;
+  margin: 1%;
+  padding: 1%;
+  max-width: 96%;
+  border-radius: 10px;
+}
+
+.formRow {
+  margin-bottom: 2%;
+}
+
+.buttonAdd {
+  width: 90%;
+  height: 100%;
+}
+
+.containerFooter {
+  background-color: white;
+  margin: 1%;
+  padding: 1%;
+  max-width: 96%;
+  border-radius: 10px;
+}
+
+.lgProducts {
+  font-weight: 650;
+}
+
+.colChart {
+  text-align: center;
+}
+
+.rowButtonsLog {
+  background-color: white;
+  /* border: 1px solid black; */
+  border-radius: 10px;
+  margin-top: 2% !important;
+  padding: 2%;
+}
+
+.containerCreateUser {
+  margin-top: 2%;
+  padding: 1%;
+  background-color: white;
+  border: 1px solid white;
+  border-radius: 10px;
+}
+
+.rowPersonalTop {
+  margin-top: 2% !important;
+  margin-bottom: 2% !important;
+}
