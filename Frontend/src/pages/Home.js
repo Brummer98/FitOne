@@ -2,6 +2,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
+// Auth0 imports
+import { Auth0Provider } from "@auth0/auth0-react";
+
 // CSS import
 import "../App.css";
 
@@ -15,9 +18,9 @@ import {
 
 // Bootstrap import
 import "bootstrap/dist/css/bootstrap.min.css";
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 // Component imports
 import NavBar from "../components/Navbar";
@@ -28,6 +31,10 @@ import ProductsList from "../components/ProductsList";
 import Footer from "../components/Footer";
 import MyComponent from "../components/API";
 import EntireForm from "../components/EntireForm";
+import Profile from "../components/Login/Profile";
+
+const domain = process.env.REACT_APP_AUTH0_DOMAIN;
+const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
 
 // App function
 class Home extends React.Component {
@@ -62,18 +69,27 @@ class Home extends React.Component {
     });
   }
 
+  
+
   render() {
     return (
       <>
         <style>{"body { background-color: #2A6892; }"}</style>
         <NavBar2 />
+        {/* <EntireForm /> */}
+        <Auth0Provider
+          domain={domain}
+          clientId={clientId}
+          redirectUri={window.location.origin}
+        >
+        <Profile />
         <ProgressBarMain />
         <ChartsContainer />
         <ProductsList />
-        {/* <EntireForm /> */}
         <Footer />
         {/* Testing API */}
         <MyComponent />
+        </Auth0Provider>
       </>
     );
   }

@@ -74,9 +74,9 @@ class Login extends React.Component {
               </Col>
               <Col xs={2}></Col>
             </Row>
-            <Row>
+            {/* <Row>
             <Profile />
-            </Row>
+            </Row> */}
           </Container>
         </Auth0Provider>
       </>

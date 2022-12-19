@@ -83,7 +83,7 @@ class Personal extends React.Component {
           <Row>
             {/* <UserForm /> */}
             {/* <UserEditForm /> */}
-            {/* <Profile /> */}
+            <Profile />
           </Row>
         </Container>
       </>
