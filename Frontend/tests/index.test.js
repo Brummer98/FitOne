@@ -1,4 +1,4 @@
-import index from '../index';
+import index from '../../Backend/index';
 import React, { useEffect, useState } from "react";
 import { render, screen } from '@testing-library/react';
 
