@@ -1,12 +1,19 @@
 // React imports
 import React from 'react';
 import ReactDOM from 'react-dom';
+
 // Page, component and functional imports
 import index from '../index';
 import sum from './sum';
+
 // Mongoose db imports
 import express from 'express';
 import mongoose from 'mongoose';
+
+// Essential imports
+import bodyparser from 'body-parser';
+import cors from 'cors';
+import routes from './routes/fitoneRoutes';
 
 // Connect with express on port {4000}
 const app = express();
