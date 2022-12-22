@@ -1,7 +1,23 @@
-import sum from './sum';
+// React imports
 import React from 'react';
 import ReactDOM from 'react-dom';
+// Page, component and functional imports
 import index from '../index';
+import sum from './sum';
+// Mongoose db imports
+import express from 'express';
+import mongoose from 'mongoose';
+
+// Connect with express on port {4000}
+const app = express();
+const PORT = 4000; // Frontend runs on Port 3000
+
+// mongo connection
+mongoose.Promise = global.Promise;
+mongoose.connect('mongodb://localhost/fitoneDB',{
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+});
 
 test('adds 1 + 2 to equal 3', () => {
   expect(sum(1, 2)).toBe(3);
