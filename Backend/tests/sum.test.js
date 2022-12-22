@@ -1,5 +1,5 @@
 import sum from './sum';
-import mongoose from 'mongoose';
+// import mongoose from 'mongoose';
 import App from '../../Frontend/src/App';
 import { UserSchema } from '../models/userModel';
 import { 
