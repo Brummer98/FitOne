@@ -1,5 +1,5 @@
 import sum from './sum';
-import { MongoClient } from 'mongodb'
+const { MongoClient } = require('mongodb');
 
 // Connection URL
 const url = 'mongodb://localhost:27017';
