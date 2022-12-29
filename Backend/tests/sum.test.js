@@ -2,7 +2,7 @@ import sum from './sum';
 var util= require('util');
 var encoder = new util.TextEncoder('utf-8');
 const {TextDecoder, TextEncoder} = require("util");
-const { MongoClient } = require('mongoose');
+const { MongoClient } = require('mongodb');
 
 // Connection URL
 const url = 'mongodb://localhost:27017';
