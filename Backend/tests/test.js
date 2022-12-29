@@ -5,11 +5,11 @@ describe('insert', () => {
   let db;
 
   beforeAll(async () => {
-    connection = await MongoClient.connect(globalThis.__MONGO_URI__, {
+    connection = await MongoClient.connect("mongodb://localhost:27017", {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
-    db = await connection.db(globalThis.__MONGO_DB_NAME__);
+    db = await connection.db("fitoneDB");
   });
 
   afterAll(async () => {
