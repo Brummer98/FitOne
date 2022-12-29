@@ -7,6 +7,6 @@ import { render, screen } from '@testing-library/react';
 //   expect(sum(1, 2)).toBe(3);
 // });
 
-test('Render the port on index', () => {
-    render(<index />);
-  });
+// test('Render the port on index', () => {
+//     render(<index />);
+//   });
