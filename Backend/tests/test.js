@@ -9,7 +9,8 @@ describe('insert', () => {
         useNewUrlParser: true,
         useUnifiedTopology: true,
     });
-    db = await connection.db("fitoneDB");
+    db = "fitoneDB";
+    // await connection.db("fitoneDB");
   });
 
   afterAll(async () => {
