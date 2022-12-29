@@ -5,9 +5,9 @@ describe('insert', () => {
   let db;
 
   beforeAll(async () => {
-    connection = await MongoClient.connect("mongodb://localhost:27017", {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
+    connection = MongoClient.connect("mongodb://localhost:27017", {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
     });
     db = await connection.db("fitoneDB");
   });
