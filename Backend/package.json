@@ -33,7 +33,7 @@
     "nodemon": "^2.0.20"
   },
   "jest": {
-    "testEnvironment": "jsdom",
+    "testEnvironment": "node",
     "preset": "@shelf/jest-mongodb"
   }
 }
