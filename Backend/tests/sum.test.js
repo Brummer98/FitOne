@@ -1,6 +1,7 @@
 import sum from './sum';
 var util= require('util');
 var encoder = new util.TextEncoder('utf-8');
+const {TextDecoder, TextEncoder} = require("util");
 const { MongoClient } = require('mongodb');
 
 // Connection URL
