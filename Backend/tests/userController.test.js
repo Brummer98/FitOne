@@ -9,7 +9,7 @@ beforeAll(async () => await db.connect())
 
 // afterEach(async () => await db.clearDatabase())
 
-afterAll(async () => await db.closeDatabase())
+// afterAll(async () => await db.closeDatabase())
 
 // Create a describe function
 describe('User found by id', () => {

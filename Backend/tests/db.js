@@ -5,13 +5,22 @@ const mongod = new MongoMemoryServer();
 
 // connect to db
 module.exports.connect = async () => {
-    const uri = await mongod.getUri();
-    const mongooseOpt = {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-        poolSize: 10
-    };
-    await mongoose.connect(uri, mongooseOpt);
+    // const uri = await mongod.getUri();
+    // const mongooseOpt = {
+    //     useNewUrlParser: true,
+    //     useUnifiedTopology: true,
+    //     poolSize: 10
+    // };
+    // await mongoose.connect(uri, mongooseOpt);
+
+    await mongod.start();
+    const mongoUri = mongod.getUri();
+
+    await mongoose.connect(mongoUri, (err) => {
+    if (err) console.error(err);
+
+    return;
+  });
 }
 
 // Disconnect and close connection
