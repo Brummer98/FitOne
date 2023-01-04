@@ -9,6 +9,7 @@ import routes from '../routes/fitoneRoutes';
 describe('insert', () => {
   let connection;
   let db;
+
   // Before all open connection
   beforeAll(async () => {
     connection = await MongoClient.connect('mongodb://localhost/fitoneDB', {
@@ -17,10 +18,12 @@ describe('insert', () => {
     });
     db = await connection.db('fitoneDB');
   });
+
   // After all close connection
   afterAll(async () => {
     await connection.close();
   });
+
   // It test with mockuser
   it('should insert a doc into collection', async () => {
     const users = db.collection('users');
@@ -32,3 +35,5 @@ describe('insert', () => {
     expect(insertedUser).toEqual(mockUser);
   });
 });
+
+// 
