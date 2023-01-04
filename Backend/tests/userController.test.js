@@ -25,11 +25,11 @@ describe('insert', () => {
   });
 
   // After all close connection
-  afterAll(async () => {
-    await connection.close();
+  afterAll(async done => {
+    connection.close();
     done();
   });
-  
+
   // It test with mockuser
   it('should insert a doc into collection', async () => {
     const users = db.collection('users');
