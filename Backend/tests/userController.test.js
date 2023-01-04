@@ -17,12 +17,12 @@ describe('insert', () => {
       useUnifiedTopology: true,
     });
     db = await connection.db('fitoneDB');
-    jest.setTimeout(30000);
   });
 
   // After all close connection
   afterAll(async () => {
     await connection.close();
+    jest.setTimeout(30000);
   });
 
   // It test with mockuser
