@@ -3,11 +3,6 @@ import { MongoClient } from 'mongodb';
 import userController from '../controllers/userControllers';
 import routes from '../routes/fitoneRoutes';
 
-// With require method
-// const {MongoClient} = require('mongodb');
-// const userController = require('../controllers/userControllers')
-// const routes = require('../routes/fitoneRoutes');
-
 // req.get/users
 
 // Describe the test
