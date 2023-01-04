@@ -7,12 +7,13 @@ import routes from '../routes/fitoneRoutes';
 
 // Describe the test
 describe('insert', () => {
+  jest.setTimeout(30000);
   let connection;
   let db;
   
   // Before all open connection
   beforeAll(async () => {
-    // jest.setTimeout(30000);
+    // 
     connection = await MongoClient.connect('mongodb://localhost/fitoneDB', {
       useNewUrlParser: true,
       useUnifiedTopology: true,
@@ -26,7 +27,7 @@ describe('insert', () => {
   });
 
   // It test with mockuser
-  it('should insert a doc into collection', async done => {
+  it('should insert a doc into collection', async () => {
     const users = db.collection('users');
 
     const mockUser = {userName: 'John', password: 'Pass'};
@@ -34,7 +35,6 @@ describe('insert', () => {
 
     const insertedUser = await users.findOne({_id: mockUser._id});
     expect(insertedUser).toEqual(mockUser);
-    done();
   });
 });
 
