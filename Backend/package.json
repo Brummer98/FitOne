@@ -35,7 +35,6 @@
   },
   "jest": {
     "testEnvironment": "node",
-    "preset": "@shelf/jest-mongodb",
-    "test": "jest --forceExit"
+    "preset": "@shelf/jest-mongodb"
   }
 }
