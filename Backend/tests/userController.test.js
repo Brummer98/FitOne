@@ -17,6 +17,7 @@ describe('insert', () => {
       useUnifiedTopology: true,
     });
     db = await connection.db('fitoneDB');
+    jest.setTimeout(30000);
   });
 
   // After all close connection
@@ -33,7 +34,7 @@ describe('insert', () => {
 
     const insertedUser = await users.findOne({_id: mockUser._id});
     expect(insertedUser).toEqual(mockUser);
-    jest.setTimeout(30000);
+    
   });
 });
 
