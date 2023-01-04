@@ -12,6 +12,7 @@ describe('insert', () => {
   
   // Before all open connection
   beforeAll(async () => {
+    // jest.setTimeout(30000);
     connection = await MongoClient.connect('mongodb://localhost/fitoneDB', {
       useNewUrlParser: true,
       useUnifiedTopology: true,
@@ -22,11 +23,10 @@ describe('insert', () => {
   // After all close connection
   afterAll(async () => {
     await connection.close();
-    jest.setTimeout(30000);
   });
 
   // It test with mockuser
-  it('should insert a doc into collection', async () => {
+  it('should insert a doc into collection', async done => {
     const users = db.collection('users');
 
     const mockUser = {userName: 'John', password: 'Pass'};
@@ -34,7 +34,7 @@ describe('insert', () => {
 
     const insertedUser = await users.findOne({_id: mockUser._id});
     expect(insertedUser).toEqual(mockUser);
-    
+    done();
   });
 });
 
