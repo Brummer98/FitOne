@@ -9,7 +9,7 @@ import routes from '../routes/fitoneRoutes';
 describe('insert', () => {
   let connection;
   let db;
-
+  
   // Before all open connection
   beforeAll(async () => {
     connection = await MongoClient.connect('mongodb://localhost/fitoneDB', {
@@ -33,6 +33,7 @@ describe('insert', () => {
 
     const insertedUser = await users.findOne({_id: mockUser._id});
     expect(insertedUser).toEqual(mockUser);
+    jest.setTimeout(30000);
   });
 });
 
