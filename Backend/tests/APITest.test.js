@@ -35,7 +35,7 @@ describe("Testing backend CRUD", () => {
 
   // getUsers()
   it("should return all users", async () => {
-    jest.setTimeout(30000);
+    // jest.setTimeout(30000);
     const res = await Request(app).get("/users");
     expect(res.statusCode).toBe(200);
     expect(res.body.length).toBeGreaterThan(0);
@@ -43,7 +43,7 @@ describe("Testing backend CRUD", () => {
 
   // addNewUser()
   it("should create a user", async () => {
-    jest.setTimeout(30000);
+    // jest.setTimeout(30000);
     const res = await Request(app).post("/users").send({
       userName: "Test",
       password: "Pass",
@@ -55,14 +55,14 @@ describe("Testing backend CRUD", () => {
 
   // getUserWithID()
   it("should return a specific user", async () => {
-    jest.setTimeout(30000);
+    // jest.setTimeout(30000);
     const res = await Request(app).get(`/user/${elementID}`);
     expect(res.statusCode).toBe(200);
   });
 
   // updateUser()
   it("should update a product", async () => {
-    jest.setTimeout(30000);
+    // jest.setTimeout(30000);
     const res = await Request(app)
       .put(`/user/${elementID}`)
       .send({
@@ -75,7 +75,7 @@ describe("Testing backend CRUD", () => {
 
   // deleteUserByID()
   it("should delete a user", async () => {
-    jest.setTimeout(30000);
+    // jest.setTimeout(30000);
     const res = await Request(app).delete(
       `/user/${elementID}`
     );
