@@ -15,6 +15,16 @@ describe("Testing backend CRUD", () => {
   let db;
   let elementID;
 
+  // beforeAll(done => {
+  //   done()
+  // })
+  
+  // afterAll(done => {
+  //   // Closing the DB connection allows Jest to exit successfully.
+  //   mongoose.connection.close()
+  //   done()
+  // })
+  
   // Before all
   beforeAll(async () => {
     connection = await MongoClient.connect("mongodb://localhost/fitoneDB", {
@@ -25,8 +35,10 @@ describe("Testing backend CRUD", () => {
   });
 
   // After all
-  afterAll(async () => {
-    await connection.close();
+  afterAll(done => {
+    // await connection.close();
+    mongoose.connection.close()
+    done()
   });
 
   // getUsers()
@@ -56,7 +68,7 @@ describe("Testing backend CRUD", () => {
   // updateUser()
   it("should update a product", async () => {
     const res = await Request(app)
-      .put(`/user/${elementID}`) // 63a16bd3810dfbe80729ef31
+      .put(`/user/${elementID}`)
       .send({
         userName: "UpdatedUsername",
         password: "UpdatedPassword",
