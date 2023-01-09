@@ -14,24 +14,16 @@ describe("Testing backend CRUD", () => {
   let connection;
   let db;
   let elementID;
-
-  // beforeAll(done => {
-  //   done()
-  // })
-  
-  // afterAll(done => {
-  //   // Closing the DB connection allows Jest to exit successfully.
-  //   mongoose.connection.close()
-  //   done()
-  // })
   
   // Before all
-  beforeAll(async () => {
-    connection = await MongoClient.connect("mongodb://localhost/fitoneDB", {
+  beforeAll(done => {
+    connection = MongoClient.connect("mongodb://localhost/fitoneDB", {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
-    db = await connection.db("fitoneDB");
+    db = 'fitoneDB';
+    // connection.db("fitoneDB");
+    done()
   });
 
   // After all
