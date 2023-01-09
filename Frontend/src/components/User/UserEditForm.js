@@ -21,6 +21,7 @@ class UserForm extends React.Component {
     axios.get(`http://localhost:4000/users`).then((res) => {
       const users = res.data;
       this.setState({ users });
+      console.log(users);
     });
   }
 
@@ -60,8 +61,7 @@ class UserForm extends React.Component {
         {users.map((item) => (
           <Container>
             <h3>Edit {item.userName}</h3>
-            {console.log(users._id)}
-            <Form onSubmit={(e) => this.editUser(users._id, e)}>
+            <Form onSubmit={(e) => this.editUser(item._id, e)}>
               <Form.Group className="mb-3" controlId="userNameEdit">
                 <Form.Label>Username</Form.Label>
                 <Form.Control type="text" placeholder="Enter username" />

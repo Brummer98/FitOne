@@ -14,51 +14,57 @@ import NavBar2 from "../components/Navbar2.0";
 import UserEditForm from "../components/User/UserEditForm";
 
 class Edit extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      users: [],
-    };
-  }
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     users: [],
+  //   };
+  // }
 
-  componentDidMount() {
-    axios.get(`http://localhost:4000/users`).then((res) => {
-      const users = res.data;
-      this.setState({ users });
-    });
-  }
+  // componentDidMount() {
+  //   axios.get(`http://localhost:4000/users`).then((res) => {
+  //     const users = res.data;
+  //     this.setState({ users });
+  //   });
+  // }
 
-  editUser(id) {
-    console.log('Im working!');
-    // event.preventDefault();
-    axios
-      .put(`http://localhost:4000/user/${id}`, {
-        userName: 'Brammer', 
-        // document.getElementById("userNameEdit").value,
-        password: 'Password', 
-        // document.getElementById("passwordEdit").value,
-        age: 24, 
-        // document.getElementById("ageEdit").value,
-        weight: 85, 
-        // document.getElementById("weightEdit").value,
-        calories: 3245, 
-        // document.getElementById("caloriesEdit").value,
-      })
-      .then((res) => {
-        console.log(res);
-        console.log(res.data);
-        // const users = this.state.users.filter((item) => item.id !== id);
-        // this.setState({ users });
-        window.location.href = "personal";
-      });
-  }
+  // editUser(id) {
+  //   console.log('Im working!');
+  //   // event.preventDefault();
+  //   axios
+  //     .put(`http://localhost:4000/user/${id}`, {
+  //       userName: 
+  //       'Brammer', 
+  //       // document.getElementById("userNameEdit").value,
+  //       password: 
+  //       'Password', 
+  //       // document.getElementById("passwordEdit").value,
+  //       age: 
+  //       24, 
+  //       // document.getElementById("ageEdit").value,
+  //       weight: 
+  //       85, 
+  //       // document.getElementById("weightEdit").value,
+  //       calories: 
+  //       3245, 
+  //       // document.getElementById("caloriesEdit").value,
+  //     })
+  //     .then((res) => {
+  //       console.log(res);
+  //       console.log(res.data);
+  //       // const users = this.state.users.filter((item) => item.id !== id);
+  //       // this.setState({ users });
+  //       window.location.href = "personal";
+  //       console.log('HELP SOS');
+  //     });
+  // }
 
   render() {
     return (
       <>
         <NavBar2 />
         <UserEditForm 
-            users={this.state.users}
+            // users={this.state.users}
         />
       </>
     );
