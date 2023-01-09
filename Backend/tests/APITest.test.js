@@ -3,13 +3,17 @@ import app from "../index";
 // Mongo DB
 import { MongoClient } from "mongodb";
 import mongoose from "mongoose";
+import { UserSchema } from "../models/userModel";
 // Testing
 import Request from "supertest";
 
-// describe
-describe("Get all users", () => {
+// Describe tests
+describe("Testing backend CRUD", () => {
+
+  // Create variables
   let connection;
   let db;
+  let elementID;
 
   // Before all
   beforeAll(async () => {
@@ -25,25 +29,48 @@ describe("Get all users", () => {
     await connection.close();
   });
 
-  // getUsers method from routes file
-  it("getUsers()", (done) => {
-    Request(app)
-      .get("/users")
-      .expect(200)
-      .end((err, res) => {
-        if (err) return done(err);
-        return done();
-      });
+  // getUsers()
+  it("should return all users", async () => {
+    const res = await Request(app).get("/users");
+    expect(res.statusCode).toBe(200);
+    expect(res.body.length).toBeGreaterThan(0);
   });
 
-  // getUsersWithID method from routes file
-  it("getUserWithID()", (done) => {
-    Request(app)
-      .get("/user/63a16bd3810dfbe80729ef31")
-      .expect(200)
-      .end((err, res) => {
-        if (err) return done(err);
-        return done();
-      });
+  // addNewUser()
+  it("should create a user", async () => {
+    const res = await Request(app).post("/users").send({
+      userName: "Test",
+      password: "Pass",
+    });
+    expect(res.statusCode).toBe(200);
+    expect(res.body.userName).toBe("Test");
+    elementID = res.body._id;
   });
+
+  // getUserWithID()
+  it("should return a specific user", async () => {
+    const res = await Request(app).get(`/user/${elementID}`);
+    expect(res.statusCode).toBe(200);
+  });
+
+  // updateUser()
+  it("should update a product", async () => {
+    const res = await Request(app)
+      .put(`/user/${elementID}`) // 63a16bd3810dfbe80729ef31
+      .send({
+        userName: "UpdatedUsername",
+        password: "UpdatedPassword",
+      });
+    expect(res.statusCode).toBe(200);
+    expect(res.body.userName).toBe("UpdatedUsername");
+  });
+
+  // deleteUserByID()
+  it("should delete a user", async () => {
+    const res = await Request(app).delete(
+      `/user/${elementID}`
+    );
+    expect(res.statusCode).toBe(200);
+  });
+
 });
