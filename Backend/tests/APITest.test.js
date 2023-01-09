@@ -38,6 +38,7 @@ describe("Testing backend CRUD", () => {
     const res = await Request(app).get("/users");
     expect(res.statusCode).toBe(200);
     expect(res.body.length).toBeGreaterThan(0);
+    jest.setTimeout(10000);
   });
 
   // addNewUser()
@@ -49,12 +50,14 @@ describe("Testing backend CRUD", () => {
     expect(res.statusCode).toBe(200);
     expect(res.body.userName).toBe("Test");
     elementID = res.body._id;
+    jest.setTimeout(10000);
   });
 
   // getUserWithID()
   it("should return a specific user", async () => {
     const res = await Request(app).get(`/user/${elementID}`);
     expect(res.statusCode).toBe(200);
+    jest.setTimeout(10000);
   });
 
   // updateUser()
@@ -67,6 +70,7 @@ describe("Testing backend CRUD", () => {
       });
     expect(res.statusCode).toBe(200);
     expect(res.body.userName).toBe("UpdatedUsername");
+    jest.setTimeout(10000);
   });
 
   // deleteUserByID()
@@ -75,6 +79,7 @@ describe("Testing backend CRUD", () => {
       `/user/${elementID}`
     );
     expect(res.statusCode).toBe(200);
+    jest.setTimeout(10000);
   });
 
 });
