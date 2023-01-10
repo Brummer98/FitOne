@@ -25,15 +25,12 @@ describe("Testing backend CRUD", () => {
       useUnifiedTopology: true,
     });
     db = 'fitoneDB';
-    // connection.db("fitoneDB");
-    // done()
   });
 
   // After all
   afterAll(async () => {
     mongoose.connection.close()
   });
-
 
   // getUsers()
   it("should return all users", async () => {
@@ -85,7 +82,4 @@ describe("Testing backend CRUD", () => {
     );
     expect(res.statusCode).toBe(200);
   });
-
-    
 });
-
