@@ -17,8 +17,8 @@ describe("Testing backend CRUD", () => {
   
   // Before all
   beforeAll(done => {
-    // Online: mongodb+srv://FOAdmin:AO5F4p3Wn2X2AaRy@fitone23.bqbhog3.mongodb.net/test Local: mongodb://localhost/fitoneDB
-    connection = MongoClient.connect("mongodb+srv://FOAdmin:AO5F4p3Wn2X2AaRy@fitone23.bqbhog3.mongodb.net/test", {
+    // Online: mongodb+srv://FOAdmin:AO5F4p3Wn2X2AaRy@fitone23.bqbhog3.mongodb.net/fitoneDB Local: mongodb://localhost/fitoneDB
+    connection = MongoClient.connect("mongodb+srv://FOAdmin:AO5F4p3Wn2X2AaRy@fitone23.bqbhog3.mongodb.net/fitoneDB", {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
@@ -63,16 +63,16 @@ describe("Testing backend CRUD", () => {
   });
 
   // updateUser()
-  it("should update a product", async () => {
+  it("should update a user", async () => {
     // jest.setTimeout(30000);
     const res = await Request(app)
       .put(`/user/${elementID}`)
       .send({
-        userName: "UpdatedUsername",
+        userName: "UpdateNewName",
         password: "UpdatedPassword",
       });
     expect(res.statusCode).toBe(200);
-    expect(res.body.userName).toBe("UpdatedUsername");
+    expect(res.body.userName).toBe("UpdateNewName");
   });
 
   // deleteUserByID()

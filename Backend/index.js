@@ -11,7 +11,8 @@ const PORT = 4000; // Frontend runs on Port 3000
 
 // mongo connection
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/fitoneDB',{
+// Online: mongodb+srv://FOAdmin:AO5F4p3Wn2X2AaRy@fitone23.bqbhog3.mongodb.net/fitoneDB Local: mongodb://localhost/fitoneDB
+mongoose.connect('mongodb+srv://FOAdmin:AO5F4p3Wn2X2AaRy@fitone23.bqbhog3.mongodb.net/fitoneDB',{
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
