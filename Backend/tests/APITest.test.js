@@ -3,11 +3,8 @@ import app from "../index";
 // Mongo DB
 import { MongoClient } from "mongodb";
 import mongoose from "mongoose";
-import { UserSchema } from "../models/userModel";
 // Testing
 import Request from "supertest";
-
-import { server } from "../index";
 
 // Describe tests
 describe("Testing backend CRUD", () => {
@@ -34,11 +31,9 @@ describe("Testing backend CRUD", () => {
 
   // getUsers()
   it("should return all users", async () => {
-    // jest.setTimeout(30000);
     const res = await Request(app).get("/users");
     expect(res.statusCode).toBe(200);
     expect(res.body.length).toBeGreaterThan(0);
-    console.log(server);
   });
 
   // addNewUser()
@@ -55,10 +50,7 @@ describe("Testing backend CRUD", () => {
 
   // getUserWithID()
   it("should return a specific user", async () => {
-    // jest.setTimeout(30000);
-    const res = await Request(app).get
-    (`/user/${elementID}`);
-    // ("/user/63a16bd3810dfbe80729ef31");
+    const res = await Request(app).get(`/user/${elementID}`);
     expect(res.statusCode).toBe(200);
     expect(res.body.userName).toBe("Test");
   });
