@@ -14,8 +14,8 @@ describe("Testing backend CRUD", () => {
   let db;
   let elementID;
 
-  var fillP = "Passs";
-  var fillPNew = "Passs01";
+  let fillP = "Passs";
+  let fillPNew = "Passs01";
   
   // Before all
   beforeAll(async () => {
