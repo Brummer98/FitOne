@@ -44,7 +44,6 @@ describe("Testing backend CRUD", () => {
 
   // addNewUser()
   it("should create a user", async () => {
-    // jest.setTimeout(30000);
     const res = await Request(app).post("/users").send({
       userName: "Test",
       password: "Pass",
@@ -52,6 +51,7 @@ describe("Testing backend CRUD", () => {
     expect(res.statusCode).toBe(200);
     expect(res.body.userName).toBe("Test");
     elementID = res.body._id;
+    jest.setTimeout(30000);
   });
 
   // getUserWithID()
