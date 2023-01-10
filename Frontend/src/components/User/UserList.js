@@ -20,6 +20,7 @@ class UserList extends React.Component {
   }
 
   componentDidMount() {
+    // mongodb+srv://FOAdmin:AO5F4p3Wn2X2AaRy@fitone23.bqbhog3.mongodb.net/fitoneDB
     axios.get(`http://localhost:4000/users`).then((res) => {
       const users = res.data;
       this.setState({ users });
