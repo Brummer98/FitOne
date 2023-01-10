@@ -32,8 +32,8 @@ app.get('/', (req, res) =>
     res.send(`Application running on PORT: ${PORT}`)
 );
 // Give message if Port is valid
-app.listen(PORT, () => 
+const server = app.listen(PORT, () => 
     console.log(`Application running on PORT: ${PORT}`)
 );
 
-export default app;
+export default server;

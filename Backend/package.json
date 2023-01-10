@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon ./index.js --exec babel-node -e js",
-    "test": "jest --watchAll --no-cache --detectOpenHandles"
+    "test": "jest --no-cache  --detectOpenHandles --runInBand --forceExit"
   },
   "author": "Bram van Hout",
   "license": "ISC",

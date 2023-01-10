@@ -7,7 +7,7 @@ import { UserSchema } from "../models/userModel";
 // Testing
 import Request from "supertest";
 
-import server from "../index";
+import { server } from "../index";
 
 // Describe tests
 describe("Testing backend CRUD", () => {
@@ -31,15 +31,9 @@ describe("Testing backend CRUD", () => {
 
   // After all
   afterAll(async () => {
-    // await connection.close();
     mongoose.connection.close()
-    // done()
-    // Close PORT
-    // var server = app.listen(4001);
-    // app.close((err) => {
-    //   process.exit(err ? 1 : 0)
-    // })
   });
+
 
   // getUsers()
   it("should return all users", async () => {
@@ -51,46 +45,47 @@ describe("Testing backend CRUD", () => {
   });
 
   // addNewUser()
-  // it("should create a user", async () => {
-  //   const res = await Request(app).post("/users").send({
-  //     userName: "Test",
-  //     password: "Pass",
-  //   });
-  //   expect(res.statusCode).toBe(200);
-  //   expect(res.body.userName).toBe("Test");
-  //   elementID = res.body._id;
-  //   jest.setTimeout(30000);
-  // });
+  it("should create a user", async () => {
+    const res = await Request(app).post("/users").send({
+      userName: "Test",
+      password: "Pass",
+    });
+    expect(res.statusCode).toBe(200);
+    expect(res.body.userName).toBe("Test");
+    elementID = res.body._id;
+    jest.setTimeout(30000);
+  });
 
   // getUserWithID()
-  // it("should return a specific user", async () => {
-  //   // jest.setTimeout(30000);
-  //   const res = await Request(app).get
-  //   // (`/user/${elementID}`);
-  //   ("/user/63a16bd3810dfbe80729ef31");
-  //   expect(res.statusCode).toBe(200);
-  //   expect(res.body.userName).toBe("UpdatedUsername");
-  // });
+  it("should return a specific user", async () => {
+    // jest.setTimeout(30000);
+    const res = await Request(app).get
+    (`/user/${elementID}`);
+    // ("/user/63a16bd3810dfbe80729ef31");
+    expect(res.statusCode).toBe(200);
+    expect(res.body.userName).toBe("Test");
+  });
 
   // updateUser()
-  // it("should update a user", async () => {
-  //   // jest.setTimeout(30000);
-  //   const res = await Request(app)
-  //     .put(`/user/${elementID}`)
-  //     .send({
-  //       userName: "UpdateNewName",
-  //       password: "UpdatedPassword",
-  //     });
-  //   expect(res.statusCode).toBe(200);
-  //   expect(res.body.userName).toBe("UpdateNewName");
-  // });
+  it("should update a user", async () => {
+    const res = await Request(app)
+      .put(`/user/${elementID}`)
+      .send({
+        userName: "UpdateNewName",
+        password: "UpdatedPassword",
+      });
+    expect(res.statusCode).toBe(200);
+    expect(res.body.userName).toBe("UpdateNewName");
+  });
 
   // deleteUserByID()
-  // it("should delete a user", async () => {
-  //   // jest.setTimeout(30000);
-  //   const res = await Request(app).delete(
-  //     `/user/${elementID}`
-  //   );
-  //   expect(res.statusCode).toBe(200);
-  // });
+  it("should delete a user", async () => {
+    const res = await Request(app).delete(
+      `/user/${elementID}`
+    );
+    expect(res.statusCode).toBe(200);
+  });
+
+    
 });
+

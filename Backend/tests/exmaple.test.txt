@@ -1,0 +1,35 @@
+import Request from "supertest";
+
+let server
+afterEach(async () => {
+    if(server)
+        await server.close();
+});
+  
+afterAll(async () => {
+    await new Promise(resolve => setTimeout(() => resolve(), 10000)); // avoid jest open handle error
+});
+  
+beforeEach(() => {
+    // eslint-disable-next-line global-require
+    server = require('../index');
+});
+
+describe('POST /customers', () => {
+    jest.setTimeout(30000);
+    test('It creates a customer', async () => {
+
+    });
+});
+  
+  /*describe('POST /customers', () => {
+    jest.setTimeout(30000);
+    test('It creates a customer', async () => {
+      const response = await Request(server)
+        .get('/users');
+      // console.log(response.body);
+      expect(response.statusCode).toBe(200);
+    });
+  });*/
+
+  //"test": "jest --no-cache  --detectOpenHandles --runInBand --forceExit",
