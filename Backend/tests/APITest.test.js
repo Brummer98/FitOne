@@ -13,6 +13,9 @@ describe("Testing backend CRUD", () => {
   let connection;
   let db;
   let elementID;
+
+  var fillP = "Passs";
+  var fillPNew = "Passs01";
   
   // Before all
   beforeAll(async () => {
@@ -40,7 +43,7 @@ describe("Testing backend CRUD", () => {
   it("should create a user", async () => {
     const res = await Request(app).post("/users").send({
       userName: "Test",
-      password: "Pass",
+      password: fillP,
     });
     expect(res.statusCode).toBe(200);
     expect(res.body.userName).toBe("Test");
@@ -61,7 +64,7 @@ describe("Testing backend CRUD", () => {
       .put(`/user/${elementID}`)
       .send({
         userName: "UpdateNewName",
-        password: "UpdatedPassword",
+        password: fillPNew,
       });
     expect(res.statusCode).toBe(200);
     expect(res.body.userName).toBe("UpdateNewName");
