@@ -16,7 +16,7 @@ describe("Testing backend CRUD", () => {
   let elementID;
   
   // Before all
-  beforeAll(done => {
+  beforeAll(async () => {
     // Online: mongodb+srv://FOAdmin:AO5F4p3Wn2X2AaRy@fitone23.bqbhog3.mongodb.net/fitoneDB Local: mongodb://localhost/fitoneDB
     connection = MongoClient.connect("mongodb+srv://FOAdmin:AO5F4p3Wn2X2AaRy@fitone23.bqbhog3.mongodb.net/fitoneDB", {
       useNewUrlParser: true,
@@ -24,14 +24,14 @@ describe("Testing backend CRUD", () => {
     });
     db = 'fitoneDB';
     // connection.db("fitoneDB");
-    done()
+    // done()
   });
 
   // After all
-  afterAll(done => {
+  afterAll(async () => {
     // await connection.close();
     mongoose.connection.close()
-    done()
+    // done()
   });
 
   // getUsers()
