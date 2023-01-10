@@ -17,7 +17,8 @@ describe("Testing backend CRUD", () => {
   
   // Before all
   beforeAll(done => {
-    connection = MongoClient.connect("mongodb://localhost/fitoneDB", {
+    // Online: mongodb+srv://FOAdmin:AO5F4p3Wn2X2AaRy@fitone23.bqbhog3.mongodb.net/test Local: mongodb://localhost/fitoneDB
+    connection = MongoClient.connect("mongodb+srv://FOAdmin:AO5F4p3Wn2X2AaRy@fitone23.bqbhog3.mongodb.net/test", {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
@@ -58,6 +59,7 @@ describe("Testing backend CRUD", () => {
     // jest.setTimeout(30000);
     const res = await Request(app).get(`/user/${elementID}`);
     expect(res.statusCode).toBe(200);
+    // expect json data from res
   });
 
   // updateUser()
