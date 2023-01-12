@@ -5,3 +5,5 @@ test('renders the landing page', () => {
     render(<Navbar2 />);
     expect(screen.getByRole("img")).toBeInTheDocument();
   });
+
+  // Yeah
